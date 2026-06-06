@@ -1,2 +1,3 @@
 # kofimovie
-Movie discovery &amp; watchlist web app using TMDB + OMDb APIs 
+
+Movie discovery &amp; watchlist web app using TMDB + OMDb APIs
