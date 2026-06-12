@@ -1,5 +1,6 @@
 export default function Footer() {
-    return `
-    <p>© 2026 KofiMovie — Built by Emmanuel Kofi Teye</p>
+  return `
+    <p>&copy; <span id="currentyear"></span> KofiMovie - Built by Emmanuel Kofi Teye</p>
+    <p>Last Modified: <span id="lastModified"></span></p>
   `;
 }
