@@ -9,4 +9,11 @@ export default function loadHeaderFooter() {
     document.querySelector("#currentyear").textContent = new Date().getFullYear();
     document.getElementById("lastModified").textContent = document.lastModified;
 
+    //navigation BUTTON//
+    const hamburgerButton = document.getElementById("hamburger-btn")
+    hamburgerButton.addEventListener("click", () => {
+        hamburgerButton.classList.toggle("show");
+    });
+
+
 }
