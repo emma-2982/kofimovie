@@ -8,4 +8,5 @@ export default function loadHeaderFooter() {
     //Added the year and last modified dynamically
     document.querySelector("#currentyear").textContent = new Date().getFullYear();
     document.getElementById("lastModified").textContent = document.lastModified;
+
 }
