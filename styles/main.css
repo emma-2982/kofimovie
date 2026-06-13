@@ -100,6 +100,7 @@ footer {
 .btn:hover {
     filter: brightness(1.2);
 }
+
 /***********header styling****************/
 .header {
     display: grid;
@@ -114,7 +115,9 @@ footer {
     font-weight: bold;
     font-size: 1.2rem;
 }
-/*************site navigation**********/
+
+
+/*************humburger**********/
 .hamburger {
     background: #E50914;
     border: none;
@@ -132,3 +135,22 @@ footer {
 .hamburger.show::after {
     content: "\00D7";
 }
+
+/**************Navigation*****************/
+.navigation {
+    display: none;
+}
+.navigation.show {
+    display: block;
+}
+
+.navigation ul {
+    display: flex;
+    gap: 2rem;
+}
+li a {
+    color: #e3777c;
+    text-decoration: none;
+    
+}
+
