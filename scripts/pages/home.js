@@ -1,4 +1,4 @@
-export default function HomePage() {
+export default async function HomePage() {
   return `
         <section class="hero">
             <div class="hero-text">
@@ -35,11 +35,6 @@ function MovieCard(img, title, id = 1) {
         </div>
     `;
 }
-
-
-
-
-
 
 
 

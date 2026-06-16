@@ -12,13 +12,12 @@ export default function loadHeaderFooter() {
     //hamburger and navigaation selected to be toggled/
     const hamburgerButton = document.getElementById("hamburger-btn");
     const navLinks = document.querySelector("#nav-links");
-    
+
     //show class toggled//
-
-    hamburgerButton.addEventListener("click", () => {
-        hamburgerButton.classList.toggle("show");
-        navLinks.classList.toggle("show");
-    });
-
-
+    if (hamburgerButton && navLinks) {
+        hamburgerButton.addEventListener("click", () => {
+            hamburgerButton.classList.toggle("show");
+            navLinks.classList.toggle("show");
+        });
+    }
 }

@@ -1,34 +1,34 @@
-export default function MovieDetailsPage(movie) {
+import { fetchMovieDetails } from "../services/tmdb.js";
+export default async function MovieDetailsPage() {
+    const params = new URLSearchParams(window.location.search);
+    const movieId = params.get("id");
+
+    const movie = await fetchMovieDetails(movieId);
+
+    if (!movie) {
+        return `<p class="error">Movie details not found.</p>`;
+    }
+
     return `
-        <section class="details-hero">
-            <img src="${movie.backdrop}" alt="${movie.title}" class="details-backdrop">
+        <section class="movie-details">
+            <div class="backdrop" style="background-image: url('${movie.backdrop}')"></div>
 
-            <div class="details-hero-text">
+            <div class="details-content">
+                <img class="poster" src="${movie.poster}" alt="${movie.title}">
+
                 <h1>${movie.title}</h1>
-                <p class="details-tagline">${movie.tagline || ""}</p>
-            </div>
-        </section>
+                <h3>${movie.tagline || ""}</h3>
 
-        <section class="details-content">
-            <div class="details-poster">
-                <img src="${movie.poster}" alt="${movie.title}">
-            </div>
+                <p class="rating">⭐ ${movie.rating}</p>
+                <p class="genres">${movie.genres.join(", ")}</p>
+                <p class="overview">${movie.overview}</p>
 
-            <div class="details-info">
-                <h2>Overview</h2>
-                <p>${movie.overview}</p>
-
-                <h3>Release Date</h3>
-                <p>${movie.release_date}</p>
-
-                <h3>Rating</h3>
-                <p>${movie.rating} ⭐</p>
-
-                <h3>Genres</h3>
-                <p>${movie.genres.join(", ")}</p>
-
-                <button class="btn watch-btn">Watch Trailer</button>
+                ${movie.trailerKey
+            ? `<a class="trailer-btn" href="https://youtube.com/watch?v=${movie.trailerKey}" target="_blank">Watch Trailer</a>`
+            : `<p>No trailer available</p>`
+        }
             </div>
         </section>
     `;
 }
+
