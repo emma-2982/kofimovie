@@ -4,7 +4,7 @@
     nav,
     main,
     footer {
-        max-width: 1400px;
+        max-width: 1600px;
         margin: 0 auto;
     }
 
@@ -19,4 +19,33 @@
     .navigation {
         display: block;
     }
+   
+        .hero {
+            height: 380px;
+            padding: 40px;
+        }
+    
+        .hero-text h1 {
+            font-size: 2.8rem;
+        }
+    
+        .movie-grid {
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        }
+
+                results-grid {
+                    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                }
+
+        .details-content {
+            grid-template-columns: 250px 1fr;
+        }
+
+         .details-hero {
+             height: 380px;
+       }
+
+        .details-hero-text h1 {
+             font-size: 2.6rem;
+       }
 }
