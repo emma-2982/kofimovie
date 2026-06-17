@@ -3,6 +3,8 @@ import HomePage from "./pages/home.js";
 import SearchPage from "./pages/search.js";
 import MovieDetailsPage from "./pages/details.js";
 import { fetchTrendingMovies } from "./services/tmdb.js";
+import { ghanaTitles } from "./data/ghana-titles.js";
+import { fetchGhanaMovie } from "./services/omdb.js";
 
 //import { TMDB_KEY, TMDB_BASE, TMDB_IMG } from "../utils/config.js";
 
@@ -18,6 +20,8 @@ async function init() {
 
     app.innerHTML = await HomePage();
     await loadTrendingMovies();
+    loadGhanaMovies();
+
 
 }
 
@@ -40,6 +44,24 @@ async function loadTrendingMovies() {
         `)
         .join("");
 }
+
+async function loadGhanaMovies() {
+    const container = document.querySelector("#ghana-movie-list");
+
+    const movies = await Promise.all(
+        ghanaTitles.map(title => fetchGhanaMovie(title))
+    );
+
+    const validMovies = movies.filter(m => m !== null);
+    container.innerHTML = validMovies.map(movie => `
+    <a href="details.html?id=${movie.id}" class="movie-card">
+        <img src="${movie.poster}" alt="${movie.title}">
+        <h4>${movie.title}</h4>
+        <p>${movie.year}</p>
+    </a>
+`).join("");
+}
+
 init();
 loadHeaderFooter();
 HomePage(); // loads trending movies dynamically

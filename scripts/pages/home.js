@@ -17,14 +17,11 @@ export default async function HomePage() {
             </div>
         </section>
 
-        <section class="movie-row">
-            <h2>🇬🇭 Ghanaian Movies</h2>
-            <div class="movie-grid">
-                ${MovieCard("assets/images/ghana1.jpg", "Bob Santo Classics")}
-                ${MovieCard("assets/images/ghana2.jpg", "Akrobeto Comedy")}
-                ${MovieCard("assets/images/ghana3.jpg", "Kumawood Action")}
-            </div>
+        <section class="ghana-movies">
+             <h2>Ghanaian Movies</h2>
+             <div id="ghana-movie-list" class="movie-grid"></div>
         </section>
+
     `;
 }
 function MovieCard(img, title, id = 1) {
